@@ -4,7 +4,7 @@
 
     <h1>New Post</h1>
 
-    <form action="" class="post-form form-group" method="POST">
+    <form action="" class="post-form form-group" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit" class="btn btn-info save">Save</button>

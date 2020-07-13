@@ -6,21 +6,27 @@
 
     {% for post in post_list %}
 
-        <div class="w3-card-4 w3-margin w3-white">
+        <div class="w3-card-4 w3-margin w3-white border border-danger rounded">
             <a href="{% url 'post_detail' pk=post.pk %}">
+            {% if post.image %}
+                <img src=" media/{{post.image}} "  style="width:100%">
+            {% endif %}
+            
             <div class="w3-container">
             <h3><b> {{post.title}}</b></h3>
             <h5><span class="w3-opacity">Published on: {{post.published_date | date:"D M Y"}}</span></h5>
             </div>
 
-            <div class="w3-container">
-            <p><a href="{% url 'post_detail' pk=post.pk %}"> {{post.text | truncatechars:200}} </a></p>
-            <div class="w3-row">
+            <div class="w3-container ">
+            <p><a href="{% url 'post_detail' pk=post.pk %}"> {{post.text |safe|linebreaksbr | truncatechars:200}} </a></p>
+            <div class="w3-row ">
                 <div class="w3-col m8 s12">
-                <p><a href="{% url 'post_detail' pk=post.pk %}" class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></a></p>
+                <p><a href="{% url 'post_detail' pk=post.pk %}" class="w3-button w3-padding-large w3-white rounded border border-warning"><b>READ MORE »</b></a></p>
                 </div>
-                <div class="w3-col m4 w3-hide-small">
-                <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-badge">{{ post.approve_comments.count }}</span></span></p>
+                <div class="w3-col m4 w3-hide-small border border-info rounded ">
+                
+                <p class=""><span class="w3-padding-large w3-right"><b> <i class="fa fa-comments" aria-hidden="true"></i> Comments  </b> <span class="w3-badge">{{ post.approve_comments.count }}</span></span></p>
+                
                 </div>
             </div>
             </a>

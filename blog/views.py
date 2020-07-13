@@ -21,13 +21,13 @@ class PostDetailView(DetailView):
     model = Post    
 
 class CreatePostView(LoginRequiredMixin ,CreateView):
-    login_url = '/login/'
-    redirect_field_name = 'blog/post_detail.html'
+    login_url = '/login'
+    redirect_field_name = 'templates/blog/post_detail.html'
     form_class = PostForm
     model = Post
 
 class UpdatePostView(LoginRequiredMixin , UpdateView):
-    login_url = '/login/'
+    login_url = '/login'
     redirect_field_name = 'blog/post_detail.html'
     form_class = PostForm
     model = Post
@@ -37,7 +37,7 @@ class PostDeleteView(LoginRequiredMixin,DeleteView):
     success_url = reverse_lazy('post_list')
 
 class DraftListView(LoginRequiredMixin , ListView):
-    login_url = '/login/'
+    login_url = '/login'
     redirect_field_name = 'blog/post_list.html'
 
     model = Post
@@ -45,7 +45,7 @@ class DraftListView(LoginRequiredMixin , ListView):
     def get_queryset(self):
         return Post.objects.filter(published_date__isnull = True).order_by('created_date')
 
-@login_required   
+@login_required
 def add_comment_to_post(request , pk):
     post = get_object_or_404(Post, pk=pk)
     if(request.method== 'POST'):
