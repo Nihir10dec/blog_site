@@ -2,11 +2,13 @@
 
 {% block content %}
 
+<div class="jumbotron bg-dark text-light">
+
 <h1 class="posttitle loader" > {{post.title}} </h1>
 
     {% if post.published_date %}
 
-        <div class="date postdate">
+        <div class="date postdate text-muted">
             {{ post.published_date }}
         </div>
     
@@ -36,12 +38,8 @@
 
     {% endif %}
 
-    <hr>
-
+    </div>
     
-
-    <hr>
-
     <div class="jumbotron">
         <em><b><span class="mr-auto"> <i class="fa fa-comments" aria-hidden="true"></i> Comments</span></b></em>
         &nbsp;&nbsp;
@@ -81,6 +79,7 @@
 
         {% endfor %}
     
+    </div>
     </div>
 
 

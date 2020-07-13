@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <div class="container">
+    <div class="container ">
 
     {% for post in post_list %}
 
@@ -12,12 +12,12 @@
                 <img src=" media/{{post.image}} "  style="width:100%">
             {% endif %}
             
-            <div class="w3-container">
+            <div class="w3-container loader">
             <h3><b> {{post.title}}</b></h3>
             <h5><span class="w3-opacity">Published on: {{post.published_date | date:"D M Y"}}</span></h5>
             </div>
 
-            <div class="w3-container ">
+            <div class="w3-container loader">
             <p><a href="{% url 'post_detail' pk=post.pk %}"> {{post.text |safe|linebreaksbr | truncatechars:200}} </a></p>
             <div class="w3-row ">
                 <div class="w3-col m8 s12">
