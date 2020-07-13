@@ -9,12 +9,12 @@
         <div class="w3-card-4 w3-margin w3-white border border-danger rounded">
             <a href="{% url 'post_detail' pk=post.pk %}">
             {% if post.image %}
-                <img src=" media/{{post.image}} "  style="width:100%">
+                <img src="/media/{{post.image}} "  style="width:100%">
             {% endif %}
             
             <div class="w3-container loader">
             <h3><b> {{post.title}}</b></h3>
-            <h5><span class="w3-opacity">Published on: {{post.published_date | date:"D M Y"}}</span></h5>
+            <h5><span class="w3-opacity">Published on: {{post.published_date | date:"M d, Y"}}</span></h5>
             </div>
 
             <div class="w3-container loader">

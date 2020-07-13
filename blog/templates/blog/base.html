@@ -5,7 +5,7 @@
     <title>Blog</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, height=device-height initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -43,10 +43,7 @@
             </li>
             <li class="nav-item">
                   <a class="nav-link" href=" {% url 'post_draft_list' %}">Drafts <i class="fa fa-file" aria-hidden="true"></i> </a>
-            </li>
-              <li class="nav-item">
-                  <a class="nav-link" href=" {% url 'about' %}">About</a>
-              </li>              
+            </li>              
           </ul>
 
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -58,7 +55,7 @@
                   <a class="nav-link" href=" {% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
             </li>
             <li class="nav-item">
-                  <a class="nav-link text-info" > Welcome {{ user.username }} </a>
+                  <a class="nav-link text-info" > Welcome {{ user.username | title }} </a>
             </li>
 
           {% else %}
@@ -90,7 +87,7 @@
     </div>  
 
   <!-- Footer -->
-<footer class="page-footer font-small bg-dark">
+<footer class="bg-dark">
 
   <div class=" text-center py-3 text-light">© 2020 Copyright: Made By
     <a class="text-info" href="https://www.linkedin.com/in/nihir-shah/"> Nihir Shah </a>
